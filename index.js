@@ -24,6 +24,13 @@ bot.on('message', function (message){
     }
 });
 
+const kick = require('kick et kick/kick');
+    
+bot.on('message', function (message){
+    if (kick.matc(message)){
+        return kick.action(message)
+    }
+});
 
 bot.on('message', msg => {
     if (msg.content === "bonjour"){
