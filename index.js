@@ -10,7 +10,7 @@ bot.on('ready', function () {
 
 bot.on('guildMemberAdd', member => {
     member.createDM().then(channel => {
-        return channel.send('Bienvenue sur le serveur de Alexpgm' + member.displayName)
+        return channel.send('Serveur discord du développer de Surprise : https://discord.gg/xCmaHhA')
         console.log(`${member.displayName} à rejoind le serveur.`)
     }).catch(console.error)
 });
