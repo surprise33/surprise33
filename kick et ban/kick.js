@@ -1,5 +1,3 @@
-const prefix = ("?");
-
 client.on("message", (message) => {
  if (message.content.startsWith("/kick")) {
     // Easy way to get member object though mentions.
