@@ -41,4 +41,4 @@ bot.on('message', msg => {
 });
 
 bot.login(cfg.token);
-bot.login(NTE5MjQzNjYyNzk0OTQ4NjI4.DuciKw.VvUOZSb8X8oJw2L7hFwzqIq5rFw);
+bot.login(token);
