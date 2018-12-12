@@ -2,12 +2,6 @@
 
 Advanced Discord Spammer with multiple options and auto scraping proxies!
 
-## Images
-
-![console](https://raw.githubusercontent.com/Lemons1337/Discord-Spammer/master/Images/console.png)
-![panel](https://raw.githubusercontent.com/Lemons1337/Discord-Spammer/master/Images/panel.png)
-![panel2](https://raw.githubusercontent.com/Lemons1337/Discord-Spammer/master/Images/panel2.png)
-
 ## Installation
 
 Install NodeJS: https://nodejs.org/en/download/
@@ -54,8 +48,4 @@ You will be able to choose from any of these options
 
 ## Contact
 
-Telegram Chat: https://t.me/DiscordTools
-
-## Donate
-
-Bitcoin: 1JKtC7rQNo23iA9p35XaovetKvs5RDF1S
+Telegram Chat: https://t.me/DiscordSpammer

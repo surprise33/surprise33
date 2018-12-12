@@ -47,7 +47,7 @@ app.get('/join', (req, res) => {
         json.message = "Please specify a valid invite!";
         return res.end(JSON.stringify(json));
     } else {
-        var invite = req.query.invite.toString().replace(/https:\/\/|http:\/\/|discord\.gg|discordapp\.com/gi, '');
+        var invite = req.query.invite.toString().replace(/https:\/\/|http:\/\/|discord\.gg|discordapp\.com|[^A-Za-z0-9]/);
         var json = {};
         json.type = "success";
         json.title = "Sent Bots To Join";
@@ -183,13 +183,11 @@ app.get('/friend', (req, res) => {
 });
 
 scrapeProxies.then(fetched => {
-    if (fetched.length > config.max_proxies) {
-        fetched.splice(config.max_proxies - fetched.length);
-    }
-    fs.writeFile('Source/proxies.txt', fetched.join("\n"), (err) => {
+    fs.writeFile('Source/proxies.txt', fetched, (err) => {
         if (err) throw err;
         proxyChecker.checkProxiesFromFile('Source/proxies.txt', {
-            url: 'http://www.example.com',
+            url: 'https://discordapp.com',
+            regex: /It's time to ditch Skype and TeamSpeak./
         }, (host, port, ok, statusCode, err) => {
             if (ok) proxies.push(`${host}:${port}`);
         });
@@ -197,7 +195,8 @@ scrapeProxies.then(fetched => {
     console.log(`Checking ${fetched.length} proxies!`);
 }).catch(err => {
     proxyChecker.checkProxiesFromFile('Source/proxies.txt', {
-        url: 'http://www.example.com',
+        url: 'https://discordapp.com',
+        regex: /It's time to ditch Skype and TeamSpeak./
     }, (host, port, ok, statusCode, err) => {
         if (ok) proxies.push(`${host}:${port}`);
     });
@@ -205,11 +204,14 @@ scrapeProxies.then(fetched => {
 });
 
 var t = -1;
+var g = -1;
 setInterval(() => {
     if (t >= authTokens.length) return;
+    if (g >= proxies.length) g = -1;
     request({
         method: "GET",
         url: "https://discordapp.com/api/v7/users/@me",
+        proxy: `http://${proxies[g++]}`,
         headers: {
             authorization: authTokens[t++]
         }
@@ -225,7 +227,7 @@ setInterval(() => {
             tokens.push(authTokens[t]);
         }
     });
-}, 100);
+}, 250);
 
 process.on('uncaughtException', (err) => {});
 
