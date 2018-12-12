@@ -1,14 +1,31 @@
 {
-  "name": "bot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "discord-spammer",
+  "version": "1.0.3",
+  "description": "Advanced Discord Spammer with multiple options and auto scraping proxies!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "alexpgm",
-  "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.3.2"
-  }
+    "express": "^4.16.3",
+    "request": "^2.88.0",
+    "fs": "^0.0.1-security",
+    "proxy-checker": "^1.0.0",
+    "ejs": "^2.6.1"
+  },
+  "engines": {
+    "node": "8.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lemons1337/Discord-Spammer"
+  },
+  "keywords": [
+    "discord spammer",
+    "discord raider",
+    "discord tokens"
+  ],
+  "author": "Lemons1337",
+  "contributors": [],
+  "license": "MIT"
 }
