@@ -1,2 +1,0 @@
-auto.py
-pause
